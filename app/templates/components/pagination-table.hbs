@@ -1,0 +1,46 @@
+<div class="row">
+	<table class="striped">
+		<thead>
+			<tr>
+			{{#each columns as |column|}}
+				<th>
+					{{column}}
+				</th>
+			{{/each}}
+			</tr>
+		</thead>
+
+		<tbody>
+		{{#each contentFilter as |item|}}
+			<tr>
+				<td>
+					{{item.title}}
+				</td>
+				<td>
+					{{item.type}}
+				</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+</div>
+
+<div class="row">
+	<ul class="pagination center-align">
+		<li class="disabled"><a href="#!"><i class="fa fa-arrow-left"></i></a></li>
+		<li class="active"><a href="#!">1</a></li>
+		<li class="waves-effect"><a href="#!">2</a></li>
+		<li class="waves-effect"><a href="#!">3</a></li>
+		<li class="waves-effect"><a href="#!">4</a></li>
+		<li class="waves-effect"><a href="#!">5</a></li>
+		<li class="waves-effect"><a href="#!"><i class="fa fa-arrow-right"></i></a></li>
+	</ul>
+</div>
+
+
+
+
+
+
+
+

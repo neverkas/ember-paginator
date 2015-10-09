@@ -25,6 +25,19 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    }
+
+    ENV['contentSecurityPolicy'] = {
+          'default-src': "'none'",
+          'script-src': "'self' http://localhost:4200/ http://localhost:35729",
+          'font-src': "'self' http://localhost:4200/",
+          'connect-src': "'self' http://localhost:4200/ ws://localhost:35729 http://localhost:1337/",
+          'img-src': "'self' http://localhost:4200/",
+          'style-src': "'self' http://localhost:4200/ 'unsafe-inline'",
+          'media-src': "'self' http://localhost:4200/"
+    };
   }
 
   if (environment === 'test') {
