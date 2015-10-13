@@ -30,19 +30,49 @@ export default Ember.Component.extend({
 				_self.set('loading', false);
 			});
 	  },
+
+	  changeOrder: function(obj){
+	  	console.log(obj);
+	  }
 	},
 
 	didInsertElement: function(){
 		this.findContent();
+		
+		this.$('input#filter').characterCounter();
 	},
 
 	columns: function(){
 		return this._controller.columns;
 	}.property('controller'),
+	
+	columnsCount: function(){
+		if(this.get('columns')){
+			return this.get('columns').length;
+		}
+	}.property('controller', 'filterText'),
 
 	contentFilter: function(){
-		return this._controller.data;
-	}.property('controller', '_controller.data'),
+		var content;
+		var filtered = [];
+
+		if(this._controller && this._controller.data){
+			content = this._controller.data;
+		}
+
+		if(this.get('filterText') && this.get('filterText').length > 0){
+			var regex = new RegExp(this.get('filterText').toLowerCase());
+
+			filtered = content.filter(function(item){
+				return regex.test(item.get('label').toLowerCase());
+			});
+		}else{
+			filtered = content;
+		}
+		
+		return filtered;
+
+	}.property('controller', '_controller.data', 'filterText'),
 
 	findContent: function(){
 		//this.set('store', this._controller.store);

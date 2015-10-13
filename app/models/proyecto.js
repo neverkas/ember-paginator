@@ -5,6 +5,6 @@ export default DS.Model.extend({
   type: DS.attr('string'),
 
   label: function(){
-  	return this.get('title');
-  }.property('title')
+  	return this.get('title') + ' ' + this.get('type');
+  }.property('title', 'type')
 });
