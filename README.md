@@ -1,3 +1,4 @@
+# DEPRECATED
 # Ember Paginator v1.0
 
 ## Requisitos
